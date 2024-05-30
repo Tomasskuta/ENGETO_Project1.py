@@ -6,14 +6,8 @@ discord: smajlikskutik
 """
 
 from texts import *
+from users import *
 import pwinput
-
-users = {
-    "bob":"123",
-    "ann":"pass123",
-    "mike":"password123",
-    "liz":"pass123"
-}
 
 def main():
 
