@@ -8,7 +8,7 @@ discord: smajlikskutik
 from texts import *
 import pwinput
 
-USERS = {
+users = {
     "bob":"123",
     "ann":"pass123",
     "mike":"password123",
@@ -18,27 +18,25 @@ USERS = {
 def main():
 
     username = input("Username: ")
+    password = pwinput.pwinput(prompt="Password: ", mask="*")
 
-    if username in USERS and USERS:
+    if username in users and users[username] == password:
+        print("----------------------------------------------------------------")
+        print("Welcome to the app, "+username+", we have " + str(len(TEXTS)) + " texts to be analyzed.")
+        print("----------------------------------------------------------------")
 
-        password = pwinput.pwinput(prompt="Password: ",mask="*")
-
-        if USERS[username] == password :
-            print("----------------------------------------------------------------")
-            print("Welcome to the app, "+username+" We have 3 texts to be analyzed.")
-            print("----------------------------------------------------------------")
-
-            selection = None
-            while selection not in range(1,4):
-                selection = int(input("Enter a number of the text to be analyzed (1-3): "))
-                if selection not in range (1,4):
-                    print("Not in range! Try again.")
-                  
-            print(TEXTS[selection-1])
+        try:
+            selection = int(input("Enter a number of the text to be analyzed (1-" + str(len(TEXTS)) + "): "))
+            if selection not in range (1, len(TEXTS) + 1):
+                print("Invalid selection, terminating the program..")
+                return        
+        except ValueError:
+            print("Invalid input, terminating the program..")
+            return
+        
+        selected_text = TEXTS[selection - 1]
+        print(selected_text)
                     
-        else:
-            print("Wrong password")
-
     else:
         print("Unregistered user, terminating the program..")
 
