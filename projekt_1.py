@@ -56,7 +56,7 @@ def main():
         print(f"The sum of all the numbers is {numerics_count}.")
 
         print("--------------------------------------------------")
-        print("LEN|  OCCURENCES  |NR.")
+        print("LEN|     OCCURENCES     |NR.")
         print("--------------------------------------------------")
 
         words_lenghts = [len(word) for word in words]
@@ -65,7 +65,7 @@ def main():
         for i in range(1,word_max_lenght+1):
             stats = sum(1 for word in words if len(word) == i)
             stats_graph = str(stats * "*")   
-            print(f"{i}|{str(stats_graph)}|{stats}")    
+            print(f"{i:<3}|{str(stats_graph):<20}|{stats}")    
 
     else:
         print("Unregistered user, terminating the program..")
