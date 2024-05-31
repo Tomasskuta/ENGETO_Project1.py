@@ -20,7 +20,7 @@ def main():
         print("----------------------------------------------------------------")
 
         try:
-            selection = int(input(f"Enter a number of the text to be analyzed (1-{str(len(TEXTS))}: "))
+            selection = int(input(f"Enter a number of the text to be analyzed (1-{str(len(TEXTS))}): "))
             if selection not in range (1, len(TEXTS) + 1):
                 print("Invalid selection, terminating the program..")
                 return        
@@ -30,20 +30,12 @@ def main():
         
         selected_text = TEXTS[selection - 1]
         words = selected_text.split()
+        
         words_count = len(words)
         print(words_count)
 
         words_capital = sum(1 for word in words if word[0].isupper())
         print(words_capital)
-
-        #words_capital = len([word for word in words if word[0].isupper()])
-        #print(words_capital)
-
-        #words_capital = 0
-        #for word in words:
-        #    if word[0].isupper():
-        #        words_capital += 1
-        #print(words_capital)
 
         words_uppercase = sum(1 for word in words if word.isupper())
         print(words_uppercase)
@@ -57,22 +49,7 @@ def main():
         numerics_count = sum(int(word) for word in words if word.isnumeric())
         print(numerics_count)
 
-        #test = [int(word) for word in words if word.isnumeric()]
-        #soucet = 0
-        #for i in test:
-        #    soucet += i
-        #print(soucet)
-
-        #soucet = 0
-        #for word in words:
-        #    if word.isnumeric():
-        #        soucet += int(word)
-        #print(soucet)
-
-
-                    
-    else:
-        print("Unregistered user, terminating the program..")
+    print("Unregistered user, terminating the program..")
 
 if __name__ == "__main__":
     main()
