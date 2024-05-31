@@ -33,11 +33,11 @@ def main():
         words_count = len(words)
         print(words_count)
 
-        #words_capital = len([word for word in words if word[0].isupper()])
-        #print(words_capital)
-
         words_capital = sum(1 for word in words if word[0].isupper())
         print(words_capital)
+
+        #words_capital = len([word for word in words if word[0].isupper()])
+        #print(words_capital)
 
         #words_capital = 0
         #for word in words:
@@ -45,36 +45,29 @@ def main():
         #        words_capital += 1
         #print(words_capital)
 
-        words_uppercase = len([word for word in words if word.isupper()])
+        words_uppercase = sum(1 for word in words if word.isupper())
         print(words_uppercase)
 
-        words_lowercase = len([word for word in words if word.islower()])
+        words_lowercase = sum(1 for word in words if word.islower())
         print(words_lowercase)
 
-        numerics = len([word for word in words if word.isnumeric()])
+        numerics = sum(1 for word in words if word.isnumeric())
         print(numerics)
 
         numerics_count = sum(int(word) for word in words if word.isnumeric())
-        test = [int(word) for word in words if word.isnumeric()]
+        print(numerics_count)
+
+        #test = [int(word) for word in words if word.isnumeric()]
+        #soucet = 0
+        #for i in test:
+        #    soucet += i
+        #print(soucet)
 
         #soucet = 0
         #for word in words:
         #    if word.isnumeric():
         #        soucet += int(word)
-        #print(str(soucet))
-
-        print(numerics_count)
-
-        soucet = 0
-        for i in test:
-            soucet += i
-        print(soucet)
-
-        soucet = 0
-        for word in words:
-            if word.isnumeric():
-                soucet += int(word)
-        print(soucet)
+        #print(soucet)
 
 
                     
