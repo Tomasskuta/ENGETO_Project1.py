@@ -30,6 +30,15 @@ def main():
         
         selected_text = TEXTS[selection - 1]
         print(selected_text)
+        words = selected_text.split()
+        words_count = len(words)
+        print(words_count)
+
+        words_with_capitals = 0
+        for word in words:
+            if word[0].isupper():
+                words_with_capitals += 1
+        print(words_with_capitals)        
                     
     else:
         print("Unregistered user, terminating the program..")
