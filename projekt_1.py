@@ -16,11 +16,11 @@ def main():
 
     if username in users and users[username] == password:
         print("----------------------------------------------------------------")
-        print("Welcome to the app, "+username+", we have " + str(len(TEXTS)) + " texts to be analyzed.")
+        print(f"Welcome to the app, {username} we have {str(len(TEXTS))} texts to be analyzed.")
         print("----------------------------------------------------------------")
 
         try:
-            selection = int(input("Enter a number of the text to be analyzed (1-" + str(len(TEXTS)) + "): "))
+            selection = int(input(f"Enter a number of the text to be analyzed (1-{str(len(TEXTS))}: "))
             if selection not in range (1, len(TEXTS) + 1):
                 print("Invalid selection, terminating the program..")
                 return        
@@ -29,16 +29,13 @@ def main():
             return
         
         selected_text = TEXTS[selection - 1]
-        print(selected_text)
         words = selected_text.split()
         words_count = len(words)
+
         print(words_count)
 
-        words_with_capitals = 0
-        for word in words:
-            if word[0].isupper():
-                words_with_capitals += 1
-        print(words_with_capitals)        
+        words_with_capitals = len([word for word in words if word[0].isupper()])
+        print(words_with_capitals)
                     
     else:
         print("Unregistered user, terminating the program..")
