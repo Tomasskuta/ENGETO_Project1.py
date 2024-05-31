@@ -49,7 +49,8 @@ def main():
         numerics_count = sum(int(word) for word in words if word.isnumeric())
         print(numerics_count)
 
-    print("Unregistered user, terminating the program..")
+    else:
+        print("Unregistered user, terminating the program..")
 
 if __name__ == "__main__":
     main()
