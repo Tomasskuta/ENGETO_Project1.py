@@ -31,11 +31,52 @@ def main():
         selected_text = TEXTS[selection - 1]
         words = selected_text.split()
         words_count = len(words)
-
         print(words_count)
 
-        words_with_capitals = len([word for word in words if word[0].isupper()])
-        print(words_with_capitals)
+        #words_capital = len([word for word in words if word[0].isupper()])
+        #print(words_capital)
+
+        words_capital = sum(1 for word in words if word[0].isupper())
+        print(words_capital)
+
+        #words_capital = 0
+        #for word in words:
+        #    if word[0].isupper():
+        #        words_capital += 1
+        #print(words_capital)
+
+        words_uppercase = len([word for word in words if word.isupper()])
+        print(words_uppercase)
+
+        words_lowercase = len([word for word in words if word.islower()])
+        print(words_lowercase)
+
+        numerics = len([word for word in words if word.isnumeric()])
+        print(numerics)
+
+        numerics_count = sum(int(word) for word in words if word.isnumeric())
+        test = [int(word) for word in words if word.isnumeric()]
+
+        #soucet = 0
+        #for word in words:
+        #    if word.isnumeric():
+        #        soucet += int(word)
+        #print(str(soucet))
+
+        print(numerics_count)
+
+        soucet = 0
+        for i in test:
+            soucet += i
+        print(soucet)
+
+        soucet = 0
+        for word in words:
+            if word.isnumeric():
+                soucet += int(word)
+        print(soucet)
+
+
                     
     else:
         print("Unregistered user, terminating the program..")
