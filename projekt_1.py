@@ -35,7 +35,6 @@ def main():
         selected_text = TEXTS[selection - 1]
         words_split = selected_text.split()
         words = [(word.strip(".,?!-%+/*()§\"")) for word in words_split]
-        print(words)
 
         words_count = len(words)
         print(f"There are {words_count} words in the selected text.")
@@ -55,20 +54,21 @@ def main():
         numerics_count = sum(int(word) for word in words if word.isnumeric())
         print(f"The sum of all the numbers is {numerics_count}.")
 
+        words_max_lenght = max([len(word) for word in words])
+
+        max_occurrence = max(sum(1 for word in words if len(word) == i) for i in range(1, words_max_lenght + 1))
+        max_occurrence_graph = str((int((max_occurrence-10)/2)) * " ")
         print("--------------------------------------------------")
-        print("LEN|     OCCURENCES     |NR.")
+        print(f"LEN|{max_occurrence_graph}OCCURENCES{max_occurrence_graph}|NR.")
         print("--------------------------------------------------")
 
-        words_lenghts = [len(word) for word in words]
-        word_max_lenght = max(words_lenghts)
-
-        for i in range(1,word_max_lenght+1):
+        for i in range(1, words_max_lenght + 1):
             stats = sum(1 for word in words if len(word) == i)
             stats_graph = str(stats * "*")   
-            print(f"{i:<3}|{str(stats_graph):<20}|{stats}")    
+            print(f"{i:<3}|{str(stats_graph):<{max_occurrence}}|{stats}")    
 
     else:
-        print("Unregistered user, terminating the program..")
+        print("Unregistered user, terminating the program...")
 
 if __name__ == "__main__":
     main()
