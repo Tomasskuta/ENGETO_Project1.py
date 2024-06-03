@@ -57,9 +57,15 @@ def main():
         words_max_lenght = max([len(word) for word in words])
 
         max_occurrence = max(sum(1 for word in words if len(word) == i) for i in range(1, words_max_lenght + 1))
-        max_occurrence_graph = str((int((max_occurrence-10)/2)) * " ")
+        max_occurrence_graph = str((int((max_occurrence-11)/2)) * " ")
+
+        if max_occurrence % 2 == 0:
+            max_occurrence_graph2 = max_occurrence_graph + " "
+        else:
+            max_occurrence_graph2 = max_occurrence_graph
+        
         print("--------------------------------------------------")
-        print(f"LEN|{max_occurrence_graph}OCCURENCES{max_occurrence_graph}|NR.")
+        print(f"LEN|{max_occurrence_graph}OCCURRENCES{max_occurrence_graph2}|NR.")
         print("--------------------------------------------------")
 
         for i in range(1, words_max_lenght + 1):
