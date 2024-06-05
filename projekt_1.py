@@ -4,7 +4,7 @@ author: Tomáš Škuta
 email: tomasskuta@seznam.cz
 discord: smajlikskutik
 """
-# using files in case we would use .exe file so we can analyze any other text, same for users - those should be hashed iif used this way
+# using files in case we would use .exe file so we can analyze any other text, same for users - those should be hashed if used this way
 from texts import * 
 from users import *
 import pwinput
@@ -32,7 +32,7 @@ def main():
             print("Invalid input, terminating the program..")
             return
         
-        selected_text = TEXTS[selection - 1].replace("-", " ")  # not sure if we had to replace buff-to-white with buff to white, depends on user requirements 
+        selected_text = TEXTS[selection - 1].replace("-", " ")  # not sure if we had to replace buff-to-white with buff to white eventually in other cases in other texts, depends on user requirements 
         words_split = selected_text.split()
         words = [(word.strip(".,?!-%+/*()§\"")) for word in words_split]    # deleting those characters, as we dont need them and those could make some troubles while counting below
 
