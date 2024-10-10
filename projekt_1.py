@@ -72,7 +72,7 @@ def main():
         for i in range(1, words_max_lenght + 1):
             stats = sum(1 for word in words if len(word) == i)
             stats_graph = str(stats * "*")   
-            print(f"{i:<3}|{str(stats_graph):<{max_occurrence}}|{stats}")    
+            print(f"{i:<3}|{str(stats_graph):<{max_occurrence}}|{stats}") 
 
     else:
         print("Unregistered user, terminating the program...")
